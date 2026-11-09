@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="icon-512.png" width="128" alt="HealthNumbers icon">
+</p>
+
 # HealthNumbers
 
 在《魔兽世界："无限"》（World of Warcraft: Forever）的单位框体状态条上，常驻显示 **当前 / 最大** 数值。
