@@ -1,4 +1,4 @@
--- HealthNumbers.lua
+-- oldma-HealthNumbers.lua
 -- 适用于《魔兽世界：无限》(WoW Forever) 1.60.1 / Interface 16001
 --
 -- 功能：让状态条上的数值常驻显示 —— 角色栏、目标框、小队成员、焦点、宠物的
@@ -24,18 +24,18 @@
 --   界面选项，插件退出时恢复原值。
 
 local ADDON = ...
-local VERSION = "2.0.1"
+local VERSION = "2.0.2"
 local PREFIX = "|cff33ff99[血量数值]|r "
 
-HealthNumbersDB = HealthNumbersDB or {}
+OldmaHealthNumbersDB = OldmaHealthNumbersDB or {}
 -- v2 存档迁移：旧版双开关已废弃，统一为单开关，且默认开启。
 -- schemaVersion 保证只迁移一次，之后尊重用户在设置页里的实际选择。
-if HealthNumbersDB.schemaVersion ~= 2 then
-    HealthNumbersDB.enabled = true
-    HealthNumbersDB.schemaVersion = 2
+if OldmaHealthNumbersDB.schemaVersion ~= 2 then
+    OldmaHealthNumbersDB.enabled = true
+    OldmaHealthNumbersDB.schemaVersion = 2
 end
-HealthNumbersDB.main = nil
-HealthNumbersDB.group = nil
+OldmaHealthNumbersDB.main = nil
+OldmaHealthNumbersDB.group = nil
 
 local unloading = false
 local diag = { roots = {}, optionsError = nil, optionsTries = 0, refreshCount = 0, badEvents = {} }
@@ -263,7 +263,7 @@ end
 -- 应用显示状态
 ------------------------------------------------------------------------
 local function Enabled()
-    return HealthNumbersDB.enabled == true
+    return OldmaHealthNumbersDB.enabled == true
 end
 
 local function SaveOrigin(bar)
@@ -390,7 +390,7 @@ local function MakeCheckbox(panel, y, text)
         end
         sync()
         cb:SetScript("OnClick", function()
-            HealthNumbersDB.enabled = not Enabled()
+            OldmaHealthNumbersDB.enabled = not Enabled()
             sync()
             Apply()
         end)
@@ -416,7 +416,7 @@ local function MakeCheckbox(panel, y, text)
 
     cb:SetScript("OnClick", function(self)
         -- GetChecked() 在老控件上可能返回 1 / nil，不能直接和 true 比较
-        HealthNumbersDB.enabled = self:GetChecked() and true or false
+        OldmaHealthNumbersDB.enabled = self:GetChecked() and true or false
         Apply()
     end)
     return cb
@@ -429,7 +429,7 @@ local function RegisterOptions()
         return
     end
 
-    local panel = CreateFrame("Frame", "HealthNumbersOptionsPanel", UIParent)
+    local panel = CreateFrame("Frame", "OldmaHealthNumbersOptionsPanel", UIParent)
     panel:SetSize(520, 220)
 
     local title = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
@@ -530,8 +530,8 @@ local function Diagnose()
     end
 end
 
-SLASH_HEALTHNUMBERS1 = "/hn"
-SlashCmdList["HEALTHNUMBERS"] = Diagnose
+SLASH_OLDMAHEALTHNUMBERS1 = "/ohn"
+SlashCmdList["OLDMAHEALTHNUMBERS"] = Diagnose
 
 ------------------------------------------------------------------------
 -- 驱动

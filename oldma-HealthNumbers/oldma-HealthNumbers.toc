@@ -1,0 +1,10 @@
+## Interface: 16001
+## Title: |cff33ff99oldma-血量数值|r
+## Title-zhCN: |cff33ff99oldma-血量数值|r
+## Notes: Numeric values on status bars for WoW Forever. One toggle in ESC > Options > AddOns. Enabled by default.
+## Notes-zhCN: 状态条数值常驻显示（自身/目标/小队/焦点/宠物），显示「当前 / 最大」。默认开启。ESC→选项→插件→「oldma-血量数值」一个勾选框，点击即时生效。
+## Version: 2.0.2
+## Author: WorkBuddy
+## IconTexture: Interface\AddOns\oldma-HealthNumbers\icon
+## SavedVariables: OldmaHealthNumbersDB
+oldma-HealthNumbers.lua

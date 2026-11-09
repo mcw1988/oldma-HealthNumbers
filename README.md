@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="icon-512.png" width="128" alt="HealthNumbers icon">
+  <img src="icon-512.png" width="128" alt="oldma-HealthNumbers icon">
 </p>
 
-# HealthNumbers
+# oldma-HealthNumbers
 
 在《魔兽世界："无限"》（World of Warcraft: Forever）的单位框体状态条上，常驻显示 **当前 / 最大** 数值。
 
@@ -20,7 +20,7 @@
 ## 安装
 
 1. 下载本仓库（`Code → Download ZIP`），或直接克隆
-2. 把 `HealthNumbers` 文件夹放进：
+2. 把 `oldma-HealthNumbers` 文件夹放进：
 
    ```
    World of Warcraft/_forever_/Interface/AddOns/
@@ -29,18 +29,20 @@
 3. 确认目录结构是**一层**，不要多套文件夹：
 
    ```
-   Interface/AddOns/HealthNumbers/
-   ├── HealthNumbers.toc
-   └── HealthNumbers.lua
+   Interface/AddOns/oldma-HealthNumbers/
+   ├── oldma-HealthNumbers.toc
+   ├── oldma-HealthNumbers.lua
+   ├── icon.tga
+   └── icon.png
    ```
 
-   > 如果变成 `HealthNumbers/HealthNumbers/HealthNumbers.toc`，游戏不会识别。
+   > 文件夹名必须与 `.toc` 文件名一致，否则游戏不识别。
 
-4. 完全退出游戏，在角色选择界面左下角点「插件 / AddOns」，勾选「**血量数值**」，进入游戏
+4. 完全退出游戏，在角色选择界面左下角点「插件 / AddOns」，勾选「**oldma-血量数值**」，进入游戏
 
 ## 使用
 
-**ESC → 选项 → 插件 →「血量数值」**
+**ESC → 选项 → 插件 →「oldma-血量数值」**
 
 页面里只有一个勾选框：
 
@@ -92,7 +94,7 @@ elseif (self.lockShow > 0 and (not self.forceHideText)) then
 
 ## 排查
 
-游戏内输入 `/hn`，会打印：
+游戏内输入 `/ohn`，会打印：
 
 - 设置页是否注册成功、驱动执行次数
 - 每个框体根节点找到的状态条数量
@@ -116,6 +118,11 @@ elseif (self.lockShow > 0 and (not self.forceHideText)) then
 - ✅ 修改的 `statusText` 为客户端自带界面选项，退出时恢复原值
 
 ## 更新日志
+
+### 2.0.2
+- 插件改名为 `oldma-HealthNumbers`，避免与同名插件冲突
+- SavedVariables 改为 `OldmaHealthNumbersDB`，设置面板与排查命令同步改名
+- 排查命令由 `/hn` 改为 `/ohn`
 
 ### 2.0.1
 - 开关默认改为开启：首次安装、以及从旧版双开关升级时自动勾选，之后记住用户的实际选择
