@@ -24,13 +24,15 @@
 --   界面选项，插件退出时恢复原值。
 
 local ADDON = ...
-local VERSION = "2.0.0"
+local VERSION = "2.0.1"
 local PREFIX = "|cff33ff99[血量数值]|r "
 
 HealthNumbersDB = HealthNumbersDB or {}
-if HealthNumbersDB.enabled == nil then
-    -- 兼容旧版双开关存档：任一开启即视为开启
-    HealthNumbersDB.enabled = (HealthNumbersDB.main ~= false) or (HealthNumbersDB.group ~= false)
+-- v2 存档迁移：旧版双开关已废弃，统一为单开关，且默认开启。
+-- schemaVersion 保证只迁移一次，之后尊重用户在设置页里的实际选择。
+if HealthNumbersDB.schemaVersion ~= 2 then
+    HealthNumbersDB.enabled = true
+    HealthNumbersDB.schemaVersion = 2
 end
 HealthNumbersDB.main = nil
 HealthNumbersDB.group = nil

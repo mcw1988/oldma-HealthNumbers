@@ -1,9 +1,9 @@
 ## Interface: 16001
 ## Title: |cff33ff99血量数值|r
 ## Title-zhCN: |cff33ff99血量数值|r
-## Notes: Numeric values on status bars for WoW Forever. One toggle in ESC > Options > AddOns.
-## Notes-zhCN: 状态条数值常驻显示（自身/目标/小队/焦点/宠物），显示「当前 / 最大」。ESC→选项→插件→「血量数值」一个勾选框，点击即时生效。
-## Version: 2.0.0
+## Notes: Numeric values on status bars for WoW Forever. One toggle in ESC > Options > AddOns. Enabled by default.
+## Notes-zhCN: 状态条数值常驻显示（自身/目标/小队/焦点/宠物），显示「当前 / 最大」。默认开启。ESC→选项→插件→「血量数值」一个勾选框，点击即时生效。
+## Version: 2.0.1
 ## Author: WorkBuddy
 ## SavedVariables: HealthNumbersDB
 HealthNumbers.lua
